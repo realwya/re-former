@@ -1,4 +1,6 @@
 <h1>Create a new account</h1>
+
+<!-- 
 <form accept-charset="UTF-8" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="username">Username:</label>
@@ -8,4 +10,15 @@
   <label for="password">Password:</label>
   <input id="password" name="user[password]" type="password">
   <input type="submit" value="Create">
-</form>
+</form> 
+-->
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username, placeholder: "Enter your username here" %>
+  <%= form.label :email, "E-mail:" %>
+  <%= form.email_field :email %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password, placeholder: "Enter a strong one!" %>
+  <%= form.submit %>
+<% end %>
